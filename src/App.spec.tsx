@@ -1,4 +1,4 @@
-import { ScrollView } from 'react-native';
+import { Animated } from 'react-native';
 import React from 'react';
 import App from './App';
 
@@ -10,7 +10,9 @@ import ReactRenderer, {
 test('It renders the text', () => {
   const renderer: ReactTestRenderer = ReactRenderer.create(<App />);
 
-  const node: ReactTestInstance = renderer.root.findByType(ScrollView);
+  const node: ReactTestInstance = renderer.root.findByType(Animated.Image);
 
   expect(node).toBeDefined();
+
+  renderer.unmount(node.instance);
 });
