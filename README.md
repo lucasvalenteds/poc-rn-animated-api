@@ -1,4 +1,4 @@
-# POC: Animated rotation
+# POC: Animated Rotation
 
 It demonstrate how to implements rotation animation using React Native [Animated API](https://reactnative.dev/docs/next/animated).
 
