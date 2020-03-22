@@ -14,58 +14,23 @@ export const Polygon: React.FC = () => {
     y: 0,
   });
 
-  const [speed, debounce] = [800, 400];
+  const [speed, balance] = [800, 400];
 
-  const movement = Animated.sequence([
-    Animated.timing(position.x, {
-      toValue: 100,
-      duration: speed,
-      delay: debounce,
-      easing: Easing.linear,
-    }),
-    Animated.timing(position.y, {
-      toValue: -100,
-      duration: speed,
-      delay: debounce,
-      easing: Easing.linear,
-    }),
-    Animated.timing(position.x, {
-      toValue: 0,
-      duration: speed,
-      delay: debounce,
-      easing: Easing.linear,
-    }),
-    Animated.timing(position.y, {
-      toValue: 0,
-      duration: speed,
-      delay: debounce,
-      easing: Easing.bounce,
-    }),
-    Animated.timing(position.x, {
-      toValue: -100,
-      duration: speed,
-      delay: debounce,
-      easing: Easing.linear,
-    }),
-    Animated.timing(position.y, {
-      toValue: -100,
-      duration: speed,
-      delay: debounce,
-      easing: Easing.linear,
-    }),
-    Animated.timing(position.x, {
-      toValue: 0,
-      duration: speed,
-      delay: debounce,
-      easing: Easing.linear,
-    }),
-    Animated.timing(position.y, {
-      toValue: 0,
-      duration: speed,
-      delay: debounce,
-      easing: Easing.bounce,
-    }),
-  ]);
+  const suspend = Animated.timing(position.y, {
+    toValue: -100,
+    duration: speed,
+    delay: balance,
+    easing: Easing.linear,
+  });
+
+  const drop = Animated.timing(position.y, {
+    toValue: 0,
+    duration: speed,
+    delay: balance,
+    easing: Easing.bounce,
+  });
+
+  const movement = Animated.sequence([suspend, drop]);
 
   const animation = Animated.loop(movement);
 
