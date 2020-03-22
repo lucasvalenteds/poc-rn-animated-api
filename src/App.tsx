@@ -16,7 +16,7 @@ const App: React.FC = (): React.ReactElement => {
   });
 
   const rotate = new Animated.Value(0);
-  const rotateInterpolation = rotate.interpolate({
+  const rotateClockwise = rotate.interpolate({
     inputRange: [0, 1],
     outputRange: ['0deg', '360deg'],
   });
@@ -41,7 +41,7 @@ const App: React.FC = (): React.ReactElement => {
           style={[
             style.loader,
             {
-              transform: [{ rotate: rotateInterpolation }],
+              transform: [{ rotate: rotateClockwise }],
             },
           ]}
         />
