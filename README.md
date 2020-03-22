@@ -1,6 +1,6 @@
-# POC: Animated Rotation
+# POC: Animated API
 
-It demonstrate how to implements rotation animation using React Native [Animated API](https://reactnative.dev/docs/next/animated).
+It demonstrate how to implement basic animations using React Native [Animated API](https://reactnative.dev/docs/next/animated). There are examples of rotation, axis movement, animation-based styles, easing functions and combinations.
 
 ## How to run
 
