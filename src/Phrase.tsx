@@ -11,21 +11,39 @@ export const Phrase: React.FC = () => {
   const position = new Animated.ValueXY();
   const opacity = new Animated.Value(1);
 
-  const movement = Animated.stagger(100, [
+  const moveDown = Animated.stagger(100, [
     Animated.timing(position.x, {
       toValue: 100,
       duration: 2000,
     }),
     Animated.timing(position.y, {
       toValue: 100,
-      duration: 1050,
+      duration: 2000,
     }),
     Animated.timing(opacity, {
       toValue: 0,
-      duration: 1500,
+      duration: 2000,
       easing: Easing.linear,
     }),
   ]);
+
+  const moveUp = Animated.stagger(100, [
+    Animated.timing(position.x, {
+      toValue: 0,
+      duration: 2000,
+    }),
+    Animated.timing(position.y, {
+      toValue: 0,
+      duration: 2000,
+    }),
+    Animated.timing(opacity, {
+      toValue: 1,
+      duration: 2000,
+      easing: Easing.linear,
+    }),
+  ]);
+
+  const movement = Animated.sequence([moveDown, moveUp]);
 
   const animation = Animated.loop(movement);
 
