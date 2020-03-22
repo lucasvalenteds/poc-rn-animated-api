@@ -1,5 +1,5 @@
 import React from 'react';
-import { Animated, StyleSheet } from 'react-native';
+import { Animated, StyleSheet, Easing } from 'react-native';
 
 export const Polygon: React.FC = () => {
   const style = StyleSheet.create({
@@ -14,22 +14,56 @@ export const Polygon: React.FC = () => {
     y: 0,
   });
 
+  const [speed, debounce] = [800, 400];
+
   const movement = Animated.sequence([
     Animated.timing(position.x, {
       toValue: 100,
-      duration: 650,
+      duration: speed,
+      delay: debounce,
+      easing: Easing.linear,
     }),
     Animated.timing(position.y, {
       toValue: -100,
-      duration: 650,
+      duration: speed,
+      delay: debounce,
+      easing: Easing.linear,
     }),
     Animated.timing(position.x, {
       toValue: 0,
-      duration: 650,
+      duration: speed,
+      delay: debounce,
+      easing: Easing.linear,
     }),
     Animated.timing(position.y, {
       toValue: 0,
-      duration: 650,
+      duration: speed,
+      delay: debounce,
+      easing: Easing.bounce,
+    }),
+    Animated.timing(position.x, {
+      toValue: -100,
+      duration: speed,
+      delay: debounce,
+      easing: Easing.linear,
+    }),
+    Animated.timing(position.y, {
+      toValue: -100,
+      duration: speed,
+      delay: debounce,
+      easing: Easing.linear,
+    }),
+    Animated.timing(position.x, {
+      toValue: 0,
+      duration: speed,
+      delay: debounce,
+      easing: Easing.linear,
+    }),
+    Animated.timing(position.y, {
+      toValue: 0,
+      duration: speed,
+      delay: debounce,
+      easing: Easing.bounce,
     }),
   ]);
 
