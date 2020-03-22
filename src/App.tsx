@@ -3,6 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import { Spiral } from './Spiral';
 import { Star } from './Star';
 import { Polygon } from './Polygon';
+import { Phrase } from './Phrase';
 
 const App: React.FC = (): React.ReactElement => {
   const style = StyleSheet.create({
@@ -20,6 +21,7 @@ const App: React.FC = (): React.ReactElement => {
         <Polygon />
         <Spiral />
         <Star />
+        <Phrase />
       </View>
     </>
   );
