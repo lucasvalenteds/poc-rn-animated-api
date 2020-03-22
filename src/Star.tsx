@@ -21,7 +21,7 @@ export const Star: React.FC = () => {
 
   const animation = Animated.loop(rotateAnimation);
 
-  React.useLayoutEffect(() => {
+  React.useEffect(() => {
     animation.start();
 
     return () => animation.stop();

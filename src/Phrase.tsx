@@ -47,7 +47,7 @@ export const Phrase: React.FC = () => {
 
   const animation = Animated.loop(movement);
 
-  React.useLayoutEffect(() => {
+  React.useEffect(() => {
     animation.start();
 
     return () => animation.stop();
