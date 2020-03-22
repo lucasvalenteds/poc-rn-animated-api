@@ -1,5 +1,6 @@
-import React, { useLayoutEffect } from 'react';
-import { StyleSheet, Animated, Easing, View } from 'react-native';
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
+import { Spiral } from './Spiral';
 
 const App: React.FC = (): React.ReactElement => {
   const style = StyleSheet.create({
@@ -9,42 +10,12 @@ const App: React.FC = (): React.ReactElement => {
       justifyContent: 'center',
       alignItems: 'center',
     },
-    loader: {
-      width: 150,
-      height: 150,
-    },
   });
-
-  const rotate = new Animated.Value(0);
-  const rotateClockwise = rotate.interpolate({
-    inputRange: [0, 1],
-    outputRange: ['0deg', '360deg'],
-  });
-  const rotateAnimation = Animated.timing(rotate, {
-    toValue: 1,
-    easing: Easing.linear,
-  });
-
-  const animation = Animated.loop(rotateAnimation);
-
-  useLayoutEffect(() => {
-    animation.start();
-
-    return () => animation.stop();
-  }, []);
 
   return (
     <>
       <View style={style.container}>
-        <Animated.Image
-          source={require('./loader.png')}
-          style={[
-            style.loader,
-            {
-              transform: [{ rotate: rotateClockwise }],
-            },
-          ]}
-        />
+        <Spiral />
       </View>
     </>
   );
